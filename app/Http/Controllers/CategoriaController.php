@@ -14,7 +14,9 @@ class CategoriaController extends Controller
     {
         $categoria = categoria::orderBy('name', 'ASC')->get();
         //dd($categoria);
-        return view('categoria.categoria_index');
+        return view('categoria.categoria_index', compact('categoria'));
+
+    
     }
 
     /**
@@ -38,7 +40,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //dd('show:' . $id);
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_show', compact('categoria'));
     }
 
     /**
