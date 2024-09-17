@@ -9,6 +9,14 @@
 
                 <a href="{{ url('/categoria/create') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">CRIAR</a>
                          
+
+                        @if (session('mensagem'))
+                        <br>
+                    <div class="alert alert-success">
+                        {{ session('mensagem') }}
+                    </div>
+                 @endif
+
                         <table>
                         <tr>
                             <th>ID</th>
@@ -20,7 +28,10 @@
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{$value->name}}</td>
-                            <td><a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button">Visualizar</a></td>
+                            <td><a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button">Visualizar</a>
+                        
+                            <a href="{{ url('/categoria/' . $value->id) . '/edit'}}" class="btn btn-warning btn-lg active" role="button">Editar</a>
+                        </td>
                         </tr>
                         @endforeach
                         </table>

@@ -62,7 +62,10 @@ class CategoriaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        dd('Edit:' . $id);
+        $categoria = Categoria::find($id);
+        return view('categoria.categoria_edit', compact('categoria'));
+        
     }
 
     /**
