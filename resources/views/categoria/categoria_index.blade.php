@@ -6,7 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-                            <table>
+
+                <a href="{{ url('/categoria/create') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">CRIAR</a>
+                         
+                        <table>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
@@ -17,7 +20,7 @@
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{$value->name}}</td>
-                            <td><a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a></td>
+                            <td><a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button">Visualizar</a></td>
                         </tr>
                         @endforeach
                         </table>

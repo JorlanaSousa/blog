@@ -24,7 +24,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria.categoria_create');
     }
 
     /**
@@ -32,7 +32,19 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|min:5',
+        
+        ]);
+        
+        $categoria= new Categoria();
+        $categoria->name = $request->name;
+        $categoria->save();
+
+        //dd($request->all());
+
+        return redirect()->route('categoria.index') ->with('mensagem','Categoria cadastrada com sucesso!');
+
     }
 
     /**
